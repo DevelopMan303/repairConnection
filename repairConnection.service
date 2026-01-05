@@ -1,0 +1,12 @@
+[Unit]
+Description=Repair Network Connection at Startup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/repairConnection.sh
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

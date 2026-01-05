@@ -6,9 +6,14 @@ the raspy** (it works well at my home).
 ## Installation
 
 ```bash 
-sudo cp repairConnection.sh /etc/init.d
-sudo chmod +x /etc/init.d/repairConnection.sh
-sudo ln -s /etc/init.d/repairConnection.sh /etc/rc5.d/S99repairConnection
+sudo cp repairConnection.sh /usr/local/bin/
+sudo cp repairConnection.service /etc/systemd/system/
+
+sudo systemctl daemon-reload 
+sudo systemctl enable repairConnection.service
+
+# to check the log if needed: 
+sudo journalctl -u repairConnection.service -b
 ```
 
 ## Environment
